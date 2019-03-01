@@ -1,4 +1,4 @@
-package comp1110.lectures;
+package comp1110.lectures.J01;
 
 import java.util.Scanner;
 

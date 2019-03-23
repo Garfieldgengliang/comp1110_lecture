@@ -2,7 +2,7 @@ package comp1110.lectures.O03;
 
 public class Interfaces {
     public static void main(String[] args) {
-        FunnelwebSpider charlotte = new FunnelwebSpider();
+        FunnelwebSpider charlotte = new FunnelwebSpider("charlotte");
         Toxic somethingToxic = new HydrogenCyanide();
         Borax powder = new Borax();
         Dog leslie = new Dog();

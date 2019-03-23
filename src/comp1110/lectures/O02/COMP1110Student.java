@@ -31,8 +31,8 @@ public class COMP1110Student extends Student {
     }
 
     public Grade getGrade() {
-        int finalMark = mark();
-        Grade finalGrade = Grade.fromMark(finalMark);
+        int finalMark = mark();   //can also use this.mark()
+        Grade finalGrade = Grade.fromMark(finalMark);//use Grade.fromMark to implement method in enum Grade
         return finalGrade;
     }
 }

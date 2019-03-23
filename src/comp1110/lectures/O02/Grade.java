@@ -1,7 +1,7 @@
 package comp1110.lectures.O02;
 
 public enum Grade {
-    HD(80, "High distinction"),
+    HD (80, "High distinction"),
     D(70, "Distinction"),
     CR(60, "Credit"),
     P(50, "Pass"),
@@ -15,7 +15,7 @@ public enum Grade {
         this.longName = longName;
     }
 
-    public static Grade fromMark(double mark) {
+    public static Grade fromMark(double mark) { // in this method, interpret Grade as a data type
         for (Grade g : Grade.values()) {
             if (mark >= g.lowerBound)
                 return g;

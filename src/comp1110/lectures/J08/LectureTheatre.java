@@ -1,7 +1,7 @@
 package comp1110.lectures.J08;
 
 public class LectureTheatre {
-    String name;
+    public String name;
     Projector projector;
 
     LectureTheatre(String name, String projectorBrand) {

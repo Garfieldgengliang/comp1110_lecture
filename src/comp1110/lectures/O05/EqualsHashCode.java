@@ -13,7 +13,8 @@ public class EqualsHashCode {
         public boolean equals(Object obj) {
             if (obj instanceof Person) {
                 Person other = (Person)obj;
-                return name.equals(other.name) && age == other.age;
+                return this.name.equals(other.name) && this.age == other.age;// in this line, this.name.equal
+                // is just to check whether this.name is the same as other.name, because name is a field, not an instance
             } else {
                 return false;
             }

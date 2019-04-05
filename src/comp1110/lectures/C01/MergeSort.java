@@ -11,11 +11,12 @@ import static org.junit.Assert.assertTrue;
 public class MergeSort {
 
     public static List<Integer> mergeSort(List<Integer> unsorted) {
+        // an empty list, or a list of size 1, is already 'sorted'
         if (unsorted.size() <= 1) {
             return unsorted;
         }
 
-        // split the list and sort them
+        // split the list into two sublists and sort them
         var size = unsorted.size();
         var left = unsorted.subList(0, size/2);
         var right = unsorted.subList(size/2, size);
@@ -26,9 +27,8 @@ public class MergeSort {
         int l = 0;
         int r = 0;
         List<Integer> result = new ArrayList<>();
-        // this code contains a bug!
         while(l < sortedLeft.size() || r < sortedRight.size()) {
-            if (r > sortedRight.size() || (l < sortedLeft.size() && sortedLeft.get(l) < sortedRight.get(r))) {
+            if (r > sortedRight.size()-1 || (l < sortedLeft.size() && sortedLeft.get(l) < sortedRight.get(r))) {
                 result.add(sortedLeft.get(l));
                 l++;
             } else {

@@ -1,6 +1,6 @@
 package comp1110.lectures.O02;
 
-public class COMP1110Student extends Student {
+public class COMP1110Student extends Student implements Comparable<Student> {
 
     private int ass1;
     private int ass2;
@@ -34,5 +34,13 @@ public class COMP1110Student extends Student {
         int finalMark = mark();   //can also use this.mark()
         Grade finalGrade = Grade.fromMark(finalMark);//use Grade.fromMark to implement method in enum Grade
         return finalGrade;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        int myUid = Integer.parseInt(this.getUID().substring(1));
+        int otherUid = Integer.parseInt(o.getUID().substring(1));
+
+        return myUid - otherUid;
     }
 }

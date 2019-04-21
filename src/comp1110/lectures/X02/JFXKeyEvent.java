@@ -2,8 +2,10 @@ package comp1110.lectures.X02;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,6 +28,19 @@ public class JFXKeyEvent extends Application {
         pane.getChildren().add(hi);
 
         root.getChildren().add(pane);
+
+
+        scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                System.out.println(mouseEvent.getSceneX());
+                System.out.println(mouseEvent.getX());
+                System.out.println(mouseEvent.getY());
+
+            }
+        });
+
 
         scene.setOnKeyTyped(event -> {
             String c = event.getCharacter();

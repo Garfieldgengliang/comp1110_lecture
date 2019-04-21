@@ -14,10 +14,11 @@ public class IntHolder {
         return this.value;
     }
 
-    @Override
+    //@Override
+    /*
     public String toString() {
         return "" + value;
-    }
+    }  */
 
     public static void main(String[] args) {
         IntHolder h = new IntHolder(17);

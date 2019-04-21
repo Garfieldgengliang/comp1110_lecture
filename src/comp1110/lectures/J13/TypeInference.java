@@ -11,7 +11,7 @@ public class TypeInference {
             this.value = value;
         }
 
-        public static <U> ThingHolder<U> makeHolder(U value) {
+        public static  <U> ThingHolder<U> makeHolder(U value) {
             return new ThingHolder(value);
         }
 

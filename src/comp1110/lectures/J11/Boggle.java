@@ -1,5 +1,6 @@
 package comp1110.lectures.J11;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -14,6 +15,7 @@ public class Boggle {
         StringBuilder result = new StringBuilder();
         Random rand = new Random();
         boolean[] alreadyUsed = new boolean[dice.length];
+        System.out.println(Arrays.toString(alreadyUsed));
         for (int i = 0; i < 16; i++) {
             int dieNumber = rand.nextInt(16);
             while (alreadyUsed[dieNumber]) {
@@ -24,7 +26,7 @@ public class Boggle {
             int face = rand.nextInt(6);
             char faceChar = dice[dieNumber].charAt(face);
             result.append(faceChar);
-            if (i % ROW_LENGTH == ROW_LENGTH-1) result.append('\n');
+            if (i % ROW_LENGTH == ROW_LENGTH - 1) result.append('\n');
             alreadyUsed[dieNumber] = true;
         }
 

@@ -12,7 +12,9 @@ public class LectureTheatreInner {
         public String toString() {
             return brand + " in room " + name;
         }
-    }
+        // can refer direcly to the instance field "name"
+        //which is  the fields of its enclosing class
+       }
 
     String name;
     Projector projector;

@@ -8,5 +8,7 @@ public class Inheritance {
         System.out.println(fred + " got final grade " + fred.getGrade());
         Person mary = new COMP1110Student("Mary", 25, "u3233567", 4, 4, 5, 4, 5, 5, 49);
         System.out.println(mary);
+
+
     }
 }

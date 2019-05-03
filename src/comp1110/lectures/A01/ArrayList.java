@@ -51,4 +51,9 @@ public class ArrayList<T> implements List<T> {
         }
         values = newValues;
     }
+
+    public static void main(String[] args) {
+        List<Integer> testA1 = new ArrayList<>();
+        testA1.add(40);
+    }
 }

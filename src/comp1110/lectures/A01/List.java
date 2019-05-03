@@ -11,7 +11,9 @@ public interface List<T> {
      */
     T get(int index);
 
+
     int size();
-    T remove(int index);
+
+    T remove(int index); // remove the element from list and return the element at the same time
     void reverse();
 }

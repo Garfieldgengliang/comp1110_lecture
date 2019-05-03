@@ -4,10 +4,11 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public abstract class ListTest {
+public class TestArrayOnly {
 
-    public abstract <T> List<T> createList(); // this is an abstract method that returns an empty list of T type
-    //public abstract <T> ArrayList<T> createList();
+    public ArrayList createList(){
+        return new ArrayList();
+    }
 
     @Test
     public void testAdd() {

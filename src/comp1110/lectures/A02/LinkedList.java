@@ -34,6 +34,28 @@ public class LinkedList<T> implements List<T> {
                 return next.getLL(index - 1);
             }
         }
+
+        T removeLL(int index) {
+            if (next == null) {
+                throw new IndexOutOfBoundsException("Tried to traverse past the end of the list");
+            }
+            if (index == 1) {
+                T value = next.value;
+                next = next.next;
+                return value;
+            } else if (index > 1) {
+                return next.removeLL(index - 1);
+            } else {
+                throw new IndexOutOfBoundsException("Tried to remove from before the start of the list");
+            }
+        }
+
+        void reverse(LLNode newNext) {
+            if (next != null) {
+                next.reverse(this);
+            }
+            this.next = newNext;
+        }
     }
 
     @Override
@@ -82,11 +104,25 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public T remove(int index) {
-        return null;
+        if (first == null) {
+            throw new IndexOutOfBoundsException("Tried to remove from empty list");
+        }
+        if (index == 0) {
+            T value = first.value;
+            first = first.next;
+            return value;
+        }
+        return first.removeLL(index);
     }
 
     @Override
     public void reverse() {
-
+        if (first == null) {
+            return;
+        }
+        first.reverse(null);
+        LLNode tmp = last;
+        last = first;
+        first = tmp;
     }
 }

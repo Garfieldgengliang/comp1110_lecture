@@ -66,7 +66,7 @@ public abstract class ListTest {
     public void testRemoveIndexOutOfBounds() {
         List<Integer> list = createList();
         list.add(42);
-        list.remove(1); // throws an exception
+        list.remove(3); // throws an exception
     }
 
     @Test

@@ -12,7 +12,15 @@ import java.util.Scanner;
 public class HashDemo extends Application {
 
     interface HashFunction<T> {
-        int hash(T key, int buckets);
+        int hash(T key, int buckets);  //(key, buckets) -> {return key % buckets;}
+
+        // (key, buckets) -> {
+        //            int rtn = 0;
+        //            for (int i = 0; i < key.length(); i++) {
+        //                rtn += key.charAt(i);
+        //            }
+        //            return rtn % buckets;
+        //        }
     }
 
     ArrayList<Integer> uids = new ArrayList<Integer>();
@@ -60,9 +68,9 @@ public class HashDemo extends Application {
     void integerHash(String name, int buckets, ArrayList<Integer> values, HashFunction<Integer> hf, Color color) {
         int[] bkts = new int[buckets];
         for(Integer i : values) {
-            bkts[hf.hash(i, buckets)]++;
+            bkts[hf.hash(i, buckets)]++; // the value of corresponding bucket add 1
         }
-        new Histogram(name, bkts, color).show();
+        new Histogram(name, bkts, color).show();  // Histogram(name, bkts,color).show()  .show is very important
     }
 
     /**
@@ -89,6 +97,7 @@ public class HashDemo extends Application {
      * @param hash The hash function
      */
     private void integerHash(Color color, HashFunction<Integer> hash) {
+
         integerHash("UIDs", 20, uids, hash, color);
     }
 
@@ -110,7 +119,12 @@ public class HashDemo extends Application {
 
         /* hashing integers */
 		//integerHash(Color.GREEN, (key, buckets) -> 0);
-		integerHash(Color.LIMEGREEN, (key, buckets) -> {return key % buckets;});
+
+        HashFunction<Integer> inthash =  (key, buckets) -> {return key % buckets;};
+        //integerHash(Color.LIMEGREEN, inthash );
+		integerHash("UID", 20, uids, inthash, Color.LIMEGREEN);
+
+
 		//integerHash(Color.YELLOWGREEN, (key, buckets) -> {return (key/10) % buckets;});
 
         /* hashing strings */
@@ -133,7 +147,14 @@ public class HashDemo extends Application {
      * @param args
      */
     public static void main(String[] args) {
+
         launch(args);
+        // append a lumbda expression to create a new HashFunction testHash
+        HashFunction<Integer> testHash = (key, buckets) -> {return key % buckets;};
+        //call the method hash to get the return
+        int testInt = testHash.hash(20,4);
+
+        System.out.println(testInt);
     }
 
 }

@@ -53,8 +53,8 @@ public class LinkedList<T> implements List<T> {
         void reverse(LLNode newNext) {
             if (next != null) {
                 next.reverse(this);
-            }
-            this.next = newNext;
+            }// the loop part
+            this.next = newNext; // the value assignment part
         }
     }
 

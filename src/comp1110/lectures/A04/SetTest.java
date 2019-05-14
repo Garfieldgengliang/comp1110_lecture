@@ -6,7 +6,7 @@ import static junit.framework.TestCase.*;
 
 public abstract class SetTest {
 
-    public abstract <T> Set<T> createSet();
+    public abstract <T extends Comparable<T>> Set<T> createSet();
 
     @Test
     public void testAdd() {

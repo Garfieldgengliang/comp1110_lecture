@@ -2,7 +2,9 @@ package comp1110.lectures.A04;
 
 import org.junit.Test;
 
-import static junit.framework.TestCase.*;
+import java.util.Arrays;
+
+import static org.junit.Assert.*;
 
 public abstract class SetTest {
 
@@ -16,6 +18,7 @@ public abstract class SetTest {
         assertFalse(set.add(42));
         assertEquals(1, set.size());
         assertFalse(set.add(null));
+        checkSetContents(new Integer[]{42}, set);
     }
 
     @Test
@@ -23,14 +26,19 @@ public abstract class SetTest {
         Set<Integer> set = createSet();
         assertFalse(set.remove(42));
         assertEquals(0, set.size());
+        checkSetContents(new Integer[0], set);
         set.add(42);
         set.add(17);
         assertEquals(2, set.size());
+        checkSetContents(new Integer[]{17, 42}, set);
         assertTrue(set.remove(42));
         assertEquals(1, set.size());
+        checkSetContents(new Integer[]{17}, set);
         assertFalse(set.remove(42));
         assertEquals(1, set.size());
+        checkSetContents(new Integer[]{17}, set);
         assertFalse(set.remove(null));
+        checkSetContents(new Integer[]{17}, set);
     }
 
     @Test
@@ -45,5 +53,11 @@ public abstract class SetTest {
         set.remove(31);
         assertFalse(set.contains(31));
         assertTrue(set.contains(19));
+    }
+
+    private void checkSetContents(Integer[] expected, Set<Integer> set) {
+        Object[] values = set.toArray();
+        Arrays.sort(values);
+        assertArrayEquals(expected, values);
     }
 }

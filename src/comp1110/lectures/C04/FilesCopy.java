@@ -13,11 +13,11 @@ public class FilesCopy {
         try {
             in = new FileInputStream("resources/words/hamlet.txt");
             out = new FileOutputStream("resources/words/hamlet-copy.txt");
-            int i = 0;
+            int i = 0; // when using FileInputStream, the data are used in int format, but are shown in byte format
             while ((i = in.read()) >= 0) {
                 out.write(i);
             }
-            out.flush();
+            out.flush(); // dont forget to flush
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

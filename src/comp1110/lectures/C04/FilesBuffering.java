@@ -14,7 +14,9 @@ public class FilesBuffering {
         for (int j=0; j<20; j++) {
             InputStream in = null;
             OutputStream out = null;
+
             int bufferSize = 1<<j;
+            //int bufferSize = 50000;
 
             long start = 0;
             try {

@@ -2,11 +2,15 @@ package comp1110.lectures.A05;
 
 import comp1110.lectures.A04.Set;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * An implementation of a Set based on a binary search tree.
+ *
  * @param <T> the type of elements maintained by this set
  */
-public class BSTSet<T extends Comparable<T>> implements Set<T> {
+public class BSTSet<T extends Object & Comparable<? super T>> implements Set<T> {
     /**
      * This class represents a binary search tree
      * (or equivalently, a node of such a tree).
@@ -102,6 +106,19 @@ public class BSTSet<T extends Comparable<T>> implements Set<T> {
                 return this;
             }
         }
+
+        /**
+         * Add the elements in this tree to the given list of elements,
+         * in the order in which they are sorted in the tree.
+         *
+         * @param elements the list of elements to which the elements in this
+         *                 tree are to be added
+         */
+        void addElementsToList(List<T> elements) {
+            if (left != null) left.addElementsToList(elements);
+            elements.add(this.value);
+            if (right != null) right.addElementsToList(elements);
+        }
     }
 
     /**
@@ -165,5 +182,19 @@ public class BSTSet<T extends Comparable<T>> implements Set<T> {
     @Override
     public int size() {
         return numElements;
+    }
+
+    @Override
+    public Object[] toArray() {
+        List<T> elements = new ArrayList<>();
+        if (root != null) {
+            root.addElementsToList(elements);
+        }
+        return elements.toArray();
+    }
+
+    @Override
+    public Set<T> newInstance() {
+        return new BSTSet<>();
     }
 }

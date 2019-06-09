@@ -15,4 +15,6 @@ public interface Set<T> {
     boolean remove(T element);
     boolean contains(T element);
     int size();
+    Object[] toArray();
+    Set<T> newInstance();
 }

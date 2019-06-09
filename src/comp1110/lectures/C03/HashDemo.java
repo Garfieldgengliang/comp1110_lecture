@@ -108,6 +108,8 @@ public class HashDemo extends Application {
      * @param hash The hash function
      */
     private void stringHash(Color color, HashFunction<String> hash) {
+        // 此功能的目的是将 void stringHash 功能批量用于不同的文件， 对于每个文件生成的图表，
+        // 赋予不同的 diagram name, bucket number, color
         stringHash("Given Names", 20, given, hash, color);
         stringHash("Family Names", 20, family, hash, color);
         stringHash("Dictionary", 20, words, hash, color);
@@ -121,11 +123,14 @@ public class HashDemo extends Application {
 		//integerHash(Color.GREEN, (key, buckets) -> 0);
 
         HashFunction<Integer> inthash =  (key, buckets) -> {return key % buckets;};
-        //integerHash(Color.LIMEGREEN, inthash );
+        // three method to use the imterface HashFunction
+        // 1   integerHash(Color.LIMEGREEN, inthash );
+        // 2   integerHash(Color.YELLOWGREEN, (key, buckets) -> {return (key/10) % buckets;});
+        // and the third is the following
 		integerHash("UID", 20, uids, inthash, Color.LIMEGREEN);
 
 
-		//integerHash(Color.YELLOWGREEN, (key, buckets) -> {return (key/10) % buckets;});
+
 
         /* hashing strings */
         //stringHash(Color.RED, (key, buckets) -> 0);

@@ -2,6 +2,12 @@ package comp1110.lectures.A04;
 
 import java.util.LinkedList;
 
+// this is called hashSet because this is actually a set using hash table
+// if we do not use hashTable, when applying set ADT, we need to search all the elements to find out if this set contains a certain element
+// the "value" in the (key value) pair of the hashTable is the value from the set
+// so now when we want to check if the set contains certain element, take the key of element and go to the corresponding bucket
+// and see if this bucket contains the element
+
 public class HashSet<T> implements Set<T> {
     private static final int DEFAULT_SIZE = 4;
     private LinkedList<T>[] table;
@@ -17,16 +23,19 @@ public class HashSet<T> implements Set<T> {
 
     @Override
     public boolean add(T element) {
-        if (element == null) return false;
+        if( element == null) return false;
         int hashCode = element.hashCode();
-        int bucket = Math.abs(hashCode % 4);
-        if (table[bucket] == null) table[bucket] = new LinkedList<>();
-        if (!table[bucket].contains(element)) {
-            table[bucket].add(element);
+        int buck = hashCode % DEFAULT_SIZE ;
+        if(table[buck] == null){
+            table[buck] = new LinkedList<T>();
+        }
+        if( !table[buck].contains(element)){ // this is important because set cannot contain duplicates
+            table[buck].add(element);
             numElements++;
             return true;
         }
         return false;
+
     }
 
     @Override
@@ -34,12 +43,15 @@ public class HashSet<T> implements Set<T> {
         if (element == null) return false;
         int hashCode = element.hashCode();
         int bucket = hashCode % 4;
-        if (table[bucket] != null) {
-            boolean removed = table[bucket].remove(element);
-            if (removed) numElements--;
-            return removed;
+        if(table[bucket]!= null){
+            boolean remove = table[bucket].remove(element);
+            if(remove){
+                numElements--;
+                return true;
+            }
         }
-        return false;
+        return  false;
+        
     }
 
     @Override

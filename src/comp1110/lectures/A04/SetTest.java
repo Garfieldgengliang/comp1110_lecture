@@ -12,7 +12,7 @@ public abstract class SetTest {
 
     @Test
     public void testAdd() {
-        Set<Integer> set = createSet();
+        Set<Integer> set = createSet();  //new HashSet<>();  不管用什么样形式去创建interface, 终究逃不开实体化的过程
         assertTrue(set.add(42));
         assertEquals(1, set.size());
         assertFalse(set.add(42));

@@ -161,7 +161,8 @@ public class Complexity extends Application {
         containsTest(bst, words, contains, Color.BLUE);
 
         // hash set with one bucket is effectively a linked list
-        hset = new HashSet<>(1);
+        hset = new HashSet<>(1); //在此处，将interface set 实例至HashSet 完成实例化后，便可调用Set interface 中的
+                                       //  Set<T> newInstance(); method
         populateTest(hset, words, populate, Color.GOLD);
         // with more buckets, the cost of put and contains approaches constant time
         hset = new HashSet<>(40);

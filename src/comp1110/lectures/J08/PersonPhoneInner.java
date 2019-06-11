@@ -8,6 +8,7 @@ public class PersonPhoneInner {
             this.brand = brand;
         }
 
+        @Override
         public String toString(){
             return brand + " of great quality making " + Personname + "'s life easier" ;
         }

@@ -14,7 +14,7 @@ public class LectureTheatreInner {
         }
         // can refer direcly to the instance field "name"
         //which is  the fields of its enclosing class
-       }
+    }
 
     String name;
     Projector projector;

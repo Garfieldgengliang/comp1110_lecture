@@ -3,7 +3,36 @@ package comp1110.lectures.J09;
 import java.util.function.IntPredicate;
 
 public class Lambdas {
-    static void printMultiplesOf(int divisor, int[] a) {
+
+    public static  void arrayDetect(int[] a, IntPredicate predicate){
+        for(int i = 0; i < a.length; i++){
+            int current = a[i];
+            if(predicate.test(current)){
+                System.out.println(current);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] testarray = new int[40];
+        for(int index = 0; index<testarray.length; index++){
+            testarray[index] = index*2;
+        }
+
+        arrayDetect(testarray, x -> x%2==0);
+        System.out.println();
+
+        arrayDetect(testarray, x -> {
+            double sqrtx = Math.sqrt(x);
+            return sqrtx == Math.round(sqrtx);
+
+        });
+
+    }
+
+}
+/*
+static void printMultiplesOf(int divisor, int[] a) {
         System.out.println("Printing multiples of " + divisor);
         for (int i = 0; i < a.length; i++) {
             if (a[i] % divisor == 0) {
@@ -34,7 +63,7 @@ public class Lambdas {
         System.out.println();
 
         System.out.println("Multiples of three");
-        printMatching(a, x -> x % 3 == 0);
+        printMatching(a, x -> {return x % 3 == 0;} );
         System.out.println();
 
         System.out.println("Squares");
@@ -46,5 +75,4 @@ public class Lambdas {
 
 
     }
-
-}
+ */

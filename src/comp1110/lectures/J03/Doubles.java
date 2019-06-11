@@ -8,6 +8,7 @@ public class Doubles {
         System.out.println("y: " + y);
         String s = "5.4123";
         double z = Double.parseDouble(s);
+
         z = z + 1.0;
         System.out.println("z: " + z);
     }

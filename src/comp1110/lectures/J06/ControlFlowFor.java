@@ -15,7 +15,7 @@ public class ControlFlowFor {
         }
 
         System.out.println("Now enhanced");
-        for (int v : a) {
+        for (var v : a) {
             System.out.println("next value is " + v);
         }
     }

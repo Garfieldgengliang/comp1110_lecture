@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f57b7352-ff7f-4d1a-8e5f-645ec3cb1de0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comp1110/lectures/A04/HashSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comp1110/lectures/A04/HashSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comp1110/lectures/A06/BSTMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comp1110/lectures/A06/BSTMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comp1110/lectures/A06/MapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comp1110/lectures/A06/MapTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/comp1110/lectures/A06/BSTMapTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
@@ -87,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/comp1110/lectures/A06/MapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+            <state relative-caret-position="125">
+              <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -186,8 +183,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-267" />
-    <option name="width" value="1398" />
+    <option name="x" value="-12" />
+    <option name="width" value="1938" />
     <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -455,7 +452,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560226928410" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560229767753" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -705,19 +702,17 @@
       <option name="project" value="LOCAL" />
       <updated>1560163553245</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="commit">
+      <created>1560226945147</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1560226945147</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BSTMapTest - 2019.06.11 at 13h 59m 58s.xml">
-      <configuration name="BSTMapTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BSTMapTest - 2019.06.11 at 14h 00m 59s.xml">
-      <configuration name="BSTMapTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BSTMapTest - 2019.06.11 at 14h 02m 04s.xml">
-      <configuration name="BSTMapTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BSTMapTest - 2019.06.11 at 14h 03m 22s.xml">
       <configuration name="BSTMapTest" configurationId="JUnit" />
     </history-entry>
@@ -739,6 +734,15 @@
     <history-entry file="BSTMapTest - 2019.06.11 at 14h 15m 57s.xml">
       <configuration name="BSTMapTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BSTMapTest - 2019.06.11 at 14h 19m 00s.xml">
+      <configuration name="BSTMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BSTMapTest - 2019.06.11 at 14h 20m 37s.xml">
+      <configuration name="BSTMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BSTMapTest - 2019.06.11 at 14h 21m 23s.xml">
+      <configuration name="BSTMapTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -753,7 +757,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.28596804" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49636218" visible="true" weight="0.357016" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49636218" visible="true" weight="0.3250444" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1205,16 +1209,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/comp1110/lectures/A06/BSTMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-836">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/comp1110/lectures/A06/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1232,10 +1226,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/comp1110/lectures/A06/MapTest.java">
+    <entry file="file://$PROJECT_DIR$/src/comp1110/lectures/A06/BSTMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+        <state relative-caret-position="-836">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1246,6 +1240,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comp1110/lectures/A06/MapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

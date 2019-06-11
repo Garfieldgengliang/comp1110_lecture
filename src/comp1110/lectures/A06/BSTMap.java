@@ -38,10 +38,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
             if (left != null) {
                 left.addKeys(keys);
             }
-            keys.add(kv.key);
+
             if (right != null) {
                 right.addKeys(keys);
             }
+
+            keys.add(this.kv.key);
         }
 
         /**
@@ -52,29 +54,31 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
          * or null if the key was not found
          */
         V add(K key, V value) {
-            if (key.equals(kv.key)) {
-                V previousValue = kv.value;
-                kv.value = value;
-                return previousValue;
-            }
+            KVPair newPair = new KVPair(key, value);
+            BSTree newNode = new BSTree(newPair);
+           if(key == this.kv.key){
+               V previous = this.kv.value;
+               this.kv.value = value;
+               return previous;
+           }
+           if(key.compareTo(this.kv.key)< 0){
+               if(this.left == null){
+                   this.left = newNode;
+               }
+               else{
+                   return this.left.add(key, value);
+               }
+           }
+           if(key.compareTo(this.kv.key) > 0){
+               if(this.right == null){
+                   this.right = newNode;
+               }
+               else{
+                   return this.right.add(key,value);
+               }
 
-            if (key.compareTo(kv.key) > 0) {
-                // right subtree
-                if (right == null) {
-                    right = new BSTree(new KVPair(key, value));
-                } else {
-                    return right.add(key, value);
-                }
-            } else {
-                // left subtree
-                if (left == null) {
-                    left = new BSTree(new KVPair(key, value));
-                } else {
-                    return left.add(key, value);
-                }
-            }
-
-            return null;
+           }
+           return null;
         }
 
         /**
@@ -119,33 +123,40 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
          * @return the node that contains the key, or null if the key is not in the tree
          */
         BSTree find(K key, boolean remove) {
-            if (key == null) return null;
-            if (kv.key.compareTo(key) < 0) {
-                // right-hand tree
-                if (right != null) {
-                    BSTree found = right.find(key, remove);
-                    if (found != null && found.kv.key.equals(key) && remove) {
-                        right = null;
-                    }
-                    return found;
-                } else {
+            if(key == null){
+                return null;
+            }
+            if(key.compareTo(this.kv.key)<0){
+                if(this.left == null){
                     return null;
                 }
-            } else if (kv.key.compareTo(key) > 0) {
-                // left-hand tree
-                if (left != null) {
-                    BSTree found = left.find(key, remove);
-                    if (found != null && found.kv.key.equals(key) && remove) {
-                        left = null;
+                else{
+                    BSTree found = this.left.find(key,remove);
+                    if(found!= null && remove && found.kv.key == key){
+                        this.left = null; // is there anything wrong with this?
                     }
                     return found;
-                } else {
+
+                }
+            }
+
+            if(key.compareTo(this.kv.key)>0){
+                if(this.right == null){
                     return null;
                 }
-            } else {
-                // same value
+                else{
+                    BSTree found = this.right.find(key, remove);
+                    if(found != null && remove && found.kv.key == key){
+                        this.right = null;
+                    }
+                    return  found;
+                }
+
+            }
+            if(key == this.kv.key){
                 return this;
             }
+            return null;
         }
     }
 
@@ -240,3 +251,4 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         return keys;
     }
 }
+

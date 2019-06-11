@@ -25,7 +25,7 @@ public class HashSet<T> implements Set<T> {
     public boolean add(T element) {
         if( element == null) return false;
         int hashCode = element.hashCode();
-        int buck = hashCode % DEFAULT_SIZE ;
+        int buck = Math.abs(hashCode % DEFAULT_SIZE );
         if(table[buck] == null){
             table[buck] = new LinkedList<T>();
         }
@@ -42,7 +42,7 @@ public class HashSet<T> implements Set<T> {
     public boolean remove(T element) {
         if (element == null) return false;
         int hashCode = element.hashCode();
-        int bucket = hashCode % 4;
+        int bucket = Math.abs(hashCode % DEFAULT_SIZE);
         if(table[bucket]!= null){
             boolean remove = table[bucket].remove(element);
             if(remove){
@@ -58,7 +58,7 @@ public class HashSet<T> implements Set<T> {
     public boolean contains(T element) {
         if (element == null) return false;
         int hashCode = element.hashCode();
-        int bucket = Math.abs(hashCode % 4);
+        int bucket = Math.abs(hashCode % DEFAULT_SIZE);
         if (table[bucket] != null) {
             return table[bucket].contains(element);
         }

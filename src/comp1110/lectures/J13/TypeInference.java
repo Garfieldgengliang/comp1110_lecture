@@ -15,20 +15,6 @@ public class TypeInference {
             return new ThingHolder(value);
         }
 
-        /*
-        // invalid - can't infer return value
-        public var returnAString() {
-            return "This is a String";
-        }
-        */
-
-        /*
-        // invalid - can't return parameter type of method
-        public int doSomething(var x) {
-            return x + 1;
-        }
-        */
-
         @Override
         public String toString() {
             return "value: " + value;
@@ -53,3 +39,19 @@ public class TypeInference {
 
     }
 }
+
+
+
+        /*
+        // invalid - can't infer return value
+        public var returnAString() {
+            return "This is a String";
+        }
+        */
+
+        /*
+        // invalid - can't return parameter type of method
+        public int doSomething(var x) {
+            return x + 1;
+        }
+        */

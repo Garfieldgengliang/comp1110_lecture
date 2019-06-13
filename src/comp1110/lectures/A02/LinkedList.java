@@ -4,67 +4,74 @@ import comp1110.lectures.A01.List;
 
 public class LinkedList<T> implements List<T> {
 
-    private LLNode first, last;
-
-    class LLNode {
+    class LLNode{
         T value;
         LLNode next;
 
-        LLNode(T value, LLNode next) {
+        public LLNode(T value, LLNode next) {
             this.value = value;
             this.next = next;
         }
 
-        @Override
-        public String toString() {
-            if (next != null) {
-                return value.toString() + " " + next.toString();
-            } else {
-                return value.toString();
+        T getLLnode(int index){
+            if(index == 0){
+                return this.value;
             }
-        }
-
-        T getLL(int index) {
-            if (index == 0) {
-                return value;
-            } else {
-                if (next == null) {
-                    throw new IndexOutOfBoundsException("Tried to traverse past the end of the list");
+            else{
+                if(this.next == null){
+                    throw  new IndexOutOfBoundsException();
                 }
-                return next.getLL(index - 1);
+                return  next.getLLnode(index-1);
+            }
+
+        }
+
+        T removeLLnode (int index){
+            if(this.next == null){
+                throw new IndexOutOfBoundsException();
+            }
+
+            else if(index<1){
+                throw  new IndexOutOfBoundsException();
+            }
+            else{
+                if(index == 1){
+                    T value = next.value;
+                    next = next.next;
+                    return value;
+                }
+                else{
+                    return this.next.removeLLnode(index-1);
+                }
             }
         }
 
-        T removeLL(int index) {
-            if (next == null) {
-                throw new IndexOutOfBoundsException("Tried to traverse past the end of the list");
+        void reverseNode(LLNode newNext){
+            if(next != null){
+                next.reverseNode(this);
             }
-            if (index == 1) {
-                T value = next.value;
-                next = next.next;
-                return value;
-            } else if (index > 1) {
-                return next.removeLL(index - 1);
-            } else {
-                throw new IndexOutOfBoundsException("Tried to remove from before the start of the list");
-            }
-        }
 
-        void reverse(LLNode newNext) {
-            if (next != null) {
-                next.reverse(this);
-            }// the loop part
-            this.next = newNext; // the value assignment part
+            this.next = newNext;
         }
     }
 
+    LLNode first;
+    LLNode last;
+
     @Override
     public void add(T value) {
+
         LLNode newNode = new LLNode(value, null);
-        if (first == null) {
-            // list is empty
+
+        if( value == null){
+            throw  new IllegalArgumentException();
+        }
+
+        if(first == null){
             first = last = newNode;
-        } else {
+        }
+
+        else {
             last.next = newNode;
             last = newNode;
         }
@@ -72,57 +79,63 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public T get(int index) {
-        if (first == null) {
-            throw new IndexOutOfBoundsException("Tried to get from empty list");
+
+        if(first == null){
+            throw  new IndexOutOfBoundsException();
         }
-        return first.getLL(index);
-        /*
-        // non-recursive version
-        int i = 0;
-        LLNode node = first;
-        while (node != null) {
-            if (i == index) {
-                return node.value;
-            }
-            node = node.next;
-            i++;
+
+        if(index == 0){
+            return first.value;
         }
-        throw new IndexOutOfBoundsException("Invalid index:" + index);
-        */
+
+        else{
+            return first.getLLnode(index);
+        }
     }
 
     @Override
     public int size() {
-        int size = 0;
-        LLNode node = first;
-        while (node != null) {
-            node = node.next;
-            size++;
+
+        int listNum = 0;
+        LLNode firstnode = first;
+         if(first == null){
+            return 0;
         }
-        return size;
+        while(firstnode!= null){
+            firstnode = firstnode.next;
+            listNum++;
+        }
+        return listNum;
+
     }
 
     @Override
     public T remove(int index) {
-        if (first == null) {
-            throw new IndexOutOfBoundsException("Tried to remove from empty list");
-        }
-        if (index == 0) {
-            T value = first.value;
-            first = first.next;
-            return value;
-        }
-        return first.removeLL(index);
+         if(first == null){
+             throw  new IndexOutOfBoundsException();
+         }
+
+         if(index == 0){
+             T value = first.value;
+             first = first.next;
+             return  value;
+         }
+         return first.removeLLnode(index);
+
     }
 
     @Override
     public void reverse() {
-        if (first == null) {
+        if(first == null){
             return;
         }
-        first.reverse(null);
-        LLNode tmp = last;
+
+        first.reverseNode(null);
+        LLNode tempnode = last;
         last = first;
-        first = tmp;
+        first = tempnode;
+
     }
 }
+
+

@@ -23,14 +23,17 @@ public class HashSet<T> implements Set<T> {
 
     @Override
     public boolean add(T element) {
-        if( element == null) return false;
-        int hashCode = element.hashCode();
-        int buck = Math.abs(hashCode % DEFAULT_SIZE );
-        if(table[buck] == null){
-            table[buck] = new LinkedList<T>();
+        if(element == null){
+            return false;
         }
-        if( !table[buck].contains(element)){ // this is important because set cannot contain duplicates
-            table[buck].add(element);
+
+        int hashcode = element.hashCode();
+        int buckNum = Math.abs(hashcode%DEFAULT_SIZE);
+        if(table[buckNum] == null){
+            table[buckNum] = new LinkedList<>();
+        }
+        if(!table[buckNum].contains(element)){
+            table[buckNum].add(element);
             numElements++;
             return true;
         }
@@ -40,29 +43,39 @@ public class HashSet<T> implements Set<T> {
 
     @Override
     public boolean remove(T element) {
-        if (element == null) return false;
-        int hashCode = element.hashCode();
-        int bucket = Math.abs(hashCode % DEFAULT_SIZE);
-        if(table[bucket]!= null){
-            boolean remove = table[bucket].remove(element);
-            if(remove){
-                numElements--;
-                return true;
-            }
+        if(element == null){
+            return false;
         }
-        return  false;
-
+        int hashcode = element.hashCode();
+        int buckNum = Math.abs(hashcode%DEFAULT_SIZE);
+        if(table[buckNum] == null){
+            return  false;
+        }
+        else if(table[buckNum].contains(element)){
+            boolean remove = table[buckNum].remove(element);
+            if(remove) numElements--;
+            return remove;
+        }
+        return false;
     }
 
     @Override
     public boolean contains(T element) {
-        if (element == null) return false;
-        int hashCode = element.hashCode();
-        int bucket = Math.abs(hashCode % DEFAULT_SIZE);
-        if (table[bucket] != null) {
-            return table[bucket].contains(element);
+       if(element == null){
+           return false;
+       }
+
+        int hashcode = element.hashCode();
+        int buckNum = Math.abs(hashcode%DEFAULT_SIZE);
+        if(table[buckNum] == null){
+            return false;
+        }
+        else if(table[buckNum].contains(element)){
+            return true;
         }
         return false;
+
+
     }
 
     @Override

@@ -29,17 +29,20 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public T remove(int index) {
-        if (values.length == 0) {
-            throw new IndexOutOfBoundsException("Can't remove an element from an empty ArrayList!");
+        if(values.length == 0){
+            throw  new  IndexOutOfBoundsException();
         }
-        T[] newValues = (T[]) new Object[values.length - 1];
-        // could replace with a single for loop
-        System.arraycopy(values, 0, newValues, 0, index);
-        System.arraycopy(values, index + 1, newValues, index, values.length - index - 1);
+        if( index >= values.length){
+            throw  new IndexOutOfBoundsException();
+        }
 
-        T v = values[index];
-        values = newValues;
-        return v;
+        T[] newVlues = (T[]) new Object[values.length-1];
+        System.arraycopy(values, 0, newVlues, 0, index);
+        System.arraycopy(values, index+1, newVlues, index, values.length - index -1);
+        T target = values[index];
+        values = newVlues;
+        return  target;
+
     }
 
     @Override

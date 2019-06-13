@@ -42,7 +42,8 @@ public class GenericHolder<T> {
         System.out.println(s.getValue()+5);
         System.out.println(s);
 
-        GenericHolder<A> a = new GenericHolder<>(new A()); // The parameter can be any java class type
+        A testAtype = new A();
+        GenericHolder<A> a = new GenericHolder<>(testAtype); // The parameter can be any java class type
         // as long as it is an reference type ,not a primary type like int, char
         System.out.println(a);
 

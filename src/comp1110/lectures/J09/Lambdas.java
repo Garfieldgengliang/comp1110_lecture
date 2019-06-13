@@ -4,6 +4,11 @@ import java.util.function.IntPredicate;
 
 public class Lambdas {
 
+    // lumbda expression ususally implements in functional interface,
+    // which has only one method, in this method, it takes several parameter and returns a certain type of data
+    // when assign a lumbda expression to this interface, the left part of -> is the required parameter and the right part of ->
+    // is the required return
+
     public static  void arrayDetect(int[] a, IntPredicate predicate){
         for(int i = 0; i < a.length; i++){
             int current = a[i];
